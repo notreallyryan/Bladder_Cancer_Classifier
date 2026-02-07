@@ -91,24 +91,24 @@ write.csv(score_df,
 #saving as pdf because ggsave will not work with ggsurvplot for some reason.
 train_fit <- surv_fit(Surv(RFS_time, Recurrence) ~ preds, data = train_data)
 train_plot <- ggsurvplot(train_fit,
-           title = "Training Data Survival Plot",
-           xlab = "Time in Months")
+           title = "Training Data (RNA-seq) RFS",
+           xlab = "Time (Months)")
 pdf("results/train_survplot.pdf")
 print(train_plot, newpage = FALSE)
 dev.off()
 
 test_fit <- surv_fit(Surv(RFS_time, Recurrence) ~ preds, data = test_data)
 test_plot <- ggsurvplot(test_fit, 
-           title = "Testing Data Survival Plot",
-           xlab = "Time in Months")
+           title = "Testing Data (RNA-seq) RFS",
+           xlab = "Time (Months)")
 pdf("results/test_survplot.pdf")
 print(test_plot, newpage = FALSE)
 dev.off()
 
 M_fit <- surv_fit(Surv(RFS_time, Recurrence) ~ preds, data = M_data)
 M_plot <- ggsurvplot(M_fit, 
-           title = "Microarray Data Survival Plot",
-           xlab = "Time in Months")
+           title = "Microarray Data RFS",
+           xlab = "Time (Months)")
 pdf("results/M_survplot.pdf")
 print(M_plot, newpage = FALSE)
 dev.off()
